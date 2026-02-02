@@ -7,7 +7,7 @@ import java.util.*; // properties
 import error.FailedConnectionError;
 
 public class dbconnect {
-    public static void connect(){
+    public static Connection connect(){
         try{
             Properties pro=new Properties();
             FileInputStream fis=new FileInputStream("application.properties");
@@ -18,10 +18,12 @@ public class dbconnect {
             }
             else{
                 System.out.println(con+" connection object made sucessfully");
+                return con;
             }
         }
         catch(Exception e){
             e.printStackTrace();
         }
+        return null;
     }
 }
