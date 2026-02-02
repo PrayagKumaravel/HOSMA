@@ -18,6 +18,21 @@ public class EntrylevelController {
             st.setString(0, mailid);
             st.setString(1,role);
             st.setString(2, password);
+            try{
+                ResultSet rs=st.executeQuery();
+                if(rs.next()){
+                    System.out.println("Entry exist");
+                    return true;
+                }
+                else{
+                    System.out.println("Entry doesn't exist");
+                    return false;
+                }
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+            
         }
         catch(Exception e){
             e.printStackTrace();
